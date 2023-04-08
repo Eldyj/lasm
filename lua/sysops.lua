@@ -206,3 +206,12 @@ function jt(m)
 		end
 	end
 end
+
+function swp(r1, r2)
+	if (not is_register(r1)) or (not is_register(r2)) then
+		print('swp: non register passed')
+		os.exit(1)
+	end
+
+	registers[r1], registers[r2] = registers[r2], registers[r2]
+end
