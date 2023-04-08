@@ -1,3 +1,76 @@
+function l_and(v1,v2)
+	if not is_register(v1) then
+		print('l_and: non-register passed to 1st argument')
+		os.exit(1)
+	end
+
+	val1 = registers[v1]
+
+	if is_register(v2) then
+		val2 = registers[v2]
+	elseif is_number(v2) then
+		val2 = tonumber(v2)
+	elseif is_string(v2) then
+		print('l_and: wrong type for 2nd argument')
+	end
+
+	registers[v1] = tonumber(val1 and val2)
+end
+
+function l_or(v1,v2)
+	if not is_register(v1) then
+		print('l_or: non-register passed to 1st argument')
+		os.exit(1)
+	end
+
+	val1 = registers[v1]
+
+	if is_register(v2) then
+		val2 = registers[v2]
+	elseif is_number(v2) then
+		val2 = tonumber(v2)
+	elseif is_string(v2) then
+		print('l_or: wrong type for 2nd argument')
+	end
+
+	registers[v1] = tonumber(val1 or val2)
+end
+
+function l_xor(v1,v2)
+	if not is_register(v1) then
+		print('l_xor: non-register passed to 1st argument')
+		os.exit(1)
+	end
+
+	val1 = registers[v1]
+
+	if is_register(v2) then
+		val2 = registers[v2]
+	elseif is_number(v2) then
+		val2 = tonumber(v2)
+	elseif is_string(v2) then
+		print('l_xor: wrong type for 2nd argument')
+	end
+
+	registers[v1] = tonumber((val1 or val2) and (val1 ~= val2))
+end
+
+function l_not(v1)
+	if not is_register(v1) then
+		print('l_not: non-register passed')
+		os.exit(1)
+	end
+
+	val = registers[v1]
+
+	if type(val) ~= type(0) then
+		print('l_not: wrong type')
+		os.exit(1)
+	end
+
+	registers[v1] = tonumber(not(val))
+end
+
 function to_str(s)
 	if not is_register(s) then
 		print('to_str: non-register passed')

@@ -77,3 +77,19 @@ function mod(v1, v2)
 		os.exit(1)
 	end
 end
+
+function pow(v1, v2)
+	if not is_register(v1) then
+		print("pow: "..v1.." isn't register")
+		os.exit(1)
+	end
+
+	if is_register(v2) then
+		mv(v1, tostring(registers[v1] ^ registers[v2]))
+	elseif is_number(v2) then
+		mv(v1, tostring(registers[v1] ^ tonumber(v2)))
+	else
+		print('pow: math operation with '..v2..' (non number)')
+		os.exit(1)
+	end
+end
