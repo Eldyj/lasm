@@ -1,0 +1,29 @@
+#!/usr/bin/lasm
+
+mcr fibanacci_loop
+	mv c, a
+	mv a, b
+	add b, c
+
+	dec d
+	cmp d, 0
+	jg fibanacci_loop
+end
+
+mcr fibanacci
+	mv c, 0
+	mv a, 0
+	mv b, 1
+
+	fibanacci_loop
+end
+
+mv d, 30
+fibanacci
+
+mv c, a
+str c
+mv a, 1
+mv b, 1
+mv d, -1
+sc
