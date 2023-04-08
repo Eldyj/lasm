@@ -1,0 +1,29 @@
+#!/usr/bin/lasm
+
+# garg syscall
+mv a, 5
+mv b, 1
+sc
+
+# open syscall
+mv b, a
+mv a, 3
+mv c, "rb"
+sc
+
+# read syscall
+mv b, a
+mv c, 1024
+mv a, 2
+sc
+mv c, a
+
+# close syscall
+mv a, 4
+sc
+
+# write syscall
+mv a, 1
+mv b, 1
+mv d, -1
+sc

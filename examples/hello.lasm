@@ -1,0 +1,6 @@
+#!/usr/bin/lasm
+mv a, 1
+mv b, 1
+mv c, "Hello, World!\n"
+mv d, 14
+sc
