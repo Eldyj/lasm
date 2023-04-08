@@ -1,0 +1,24 @@
+#!/usr/bin/lasm
+
+mcr triangular_loop
+	add a, b
+	cmp b, 1
+	dec b
+	jg triangular_loop
+end
+
+mcr triangular
+	mv a, 0
+	cmp b, 0
+	jg triangular_loop
+end
+
+mv b, 69
+triangular
+
+mv c, a
+str c
+mv a, 1
+mv b, 1
+mv d, -1
+sc

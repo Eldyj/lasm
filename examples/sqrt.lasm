@@ -1,0 +1,16 @@
+#!/usr/bin/lasm
+
+mcr sqrt
+	mv a, b
+	pow a, 0.5
+end
+
+mv b, 9
+sqrt
+
+mv c, a
+str c
+mv a, 1
+mv b, 1
+mv d, -1
+sc

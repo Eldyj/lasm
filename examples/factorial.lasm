@@ -1,0 +1,24 @@
+#!/usr/bin/lasm
+
+mcr factorial_loop
+	mul a, b
+	cmp b, 1
+	dec b
+	jg factorial_loop
+end
+
+mcr factorial
+	mv a, 1
+	cmp b, 1
+	jg factorial_loop
+end
+
+mv b, 69
+factorial
+
+mv c, a
+str c
+mv a, 1
+mv b, 1
+mv d, -1
+sc
