@@ -71,6 +71,20 @@ function l_not(v1)
 	registers[v1] = tonumber(not(val))
 end
 
+function neg(r)
+	if not is_register(s) then
+		print('neg: non-register passed')
+		os.exit(1)
+	end
+
+	if type(register[r]) ~= type(1) then
+		print('neg: wrong type')
+		os.exit(1)
+	end
+
+	register[r] = -register[r]
+end
+
 function to_str(s)
 	if not is_register(s) then
 		print('to_str: non-register passed')

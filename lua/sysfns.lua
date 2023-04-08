@@ -4,6 +4,7 @@ end
 
 function write()
 	local l = registers['d']
+	if registers['c'] == nil then return end
 	if l == -1 then l = #registers['c'] end
 	gfd(registers['b']):write(registers['c']:sub(1, l))
 	registers['a'] = registers['d']
