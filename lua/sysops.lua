@@ -215,3 +215,25 @@ function swp(r1, r2)
 
 	registers[r1], registers[r2] = registers[r2], registers[r2]
 end
+
+function sj(v1, v2)
+	if not is_register(v1) then
+		print('sj: non register passed')
+		os.exit(1)
+	end
+
+	local val2 = v2
+
+	if is_register(v2) then
+		val2 = registers[v2]
+	elseif is_string(v2) then
+		val2 = str(v2)
+	end
+
+	if type(val2) ~= type('') or type(registers[v1]) ~= type('') then
+		print('sj: wrong type')
+		os.exit(1)
+	end
+
+	registers[v1] = registers[v1] .. val2
+end

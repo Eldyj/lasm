@@ -1,4 +1,4 @@
-calls = {exit, write, read, open, close, garg}
+calls = {exit, write, read, open, close, garg, genv}
 
 function syscall()
 	if type(registers['a']) ~= type(0) then

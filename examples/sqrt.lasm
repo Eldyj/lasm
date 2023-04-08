@@ -10,6 +10,7 @@ sqrt
 
 mv c, a
 str c
+sj c, "\n"
 mv a, 1
 mv b, 1
 mv d, -1

@@ -40,3 +40,12 @@ function garg()
 
 	registers['a'] = arg[registers['b'] + 1]
 end
+
+function genv()
+	if type(registers['b']) ~= type('') then
+		print('genv: wrong type')
+		os.exit(1)
+	end
+
+	registers['a'] = os.getenv(registers['b']) or ""
+end
